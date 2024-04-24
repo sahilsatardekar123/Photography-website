@@ -37,11 +37,7 @@
 			link: '/photos',
 			icon: Image
 		},
-		{
-			name: 'Saved',
-			link: '',
-			icon: SparkleIcon
-		},
+	
 		{
 			name: 'Profile',
 			link: '/profile',
