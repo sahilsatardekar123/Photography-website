@@ -27,9 +27,7 @@
 							<Button size="lg" href="/profiles"
 								><Users size="20" strokeWidth="1.3" class="mr-2" /> Profiles</Button
 							>
-							<Button size="lg" href="/photos"
-								><Image size="20" strokeWidth="1.3" class="mr-1.5" />Moments</Button
-							>
+							
 							<!-- <Button size="lg" variant="outline" class="border border-primary"
 								><img src={imgsIcon} class="h-6 w-6 mr-2" alt="imagesicon" /> Moments</Button
 							> -->
