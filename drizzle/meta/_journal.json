@@ -5,36 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1706229240414,
-      "tag": "0000_fluffy_morlocks",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1706921253362,
-      "tag": "0001_thankful_stranger",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1706921841812,
-      "tag": "0002_lumpy_firestar",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1706996081175,
-      "tag": "0003_elite_franklin_storm",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1707026745078,
-      "tag": "0004_goofy_george_stacy",
+      "when": 1713965296903,
+      "tag": "0000_open_freak",
       "breakpoints": true
     }
   ]

@@ -4,6 +4,26 @@ CREATE TABLE IF NOT EXISTS "brocode" (
 	"age" numeric
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "chat" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"sender" text,
+	"receiver" text,
+	"desc" text,
+	"type" text
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "featuresStuff" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" text,
+	"type" text,
+	"pic" numeric,
+	"price" numeric,
+	"delivery" numeric,
+	"revision" numeric,
+	"desc" text,
+	"features" text
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "user_key" (
 	"id" varchar(255) PRIMARY KEY NOT NULL,
 	"user_id" varchar(15) NOT NULL,
@@ -44,6 +64,26 @@ CREATE TABLE IF NOT EXISTS "auth_user" (
 	CONSTRAINT "auth_user_username_unique" UNIQUE("username")
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "userDetailInfo" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" text,
+	"expert_in" text,
+	"about" text,
+	"skills" text
+);
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "chat" ADD CONSTRAINT "chat_sender_auth_user_username_fk" FOREIGN KEY ("sender") REFERENCES "auth_user"("username") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "featuresStuff" ADD CONSTRAINT "featuresStuff_user_id_auth_user_username_fk" FOREIGN KEY ("user_id") REFERENCES "auth_user"("username") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "user_key" ADD CONSTRAINT "user_key_user_id_auth_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "auth_user"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
@@ -64,6 +104,12 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "user_session" ADD CONSTRAINT "user_session_user_id_auth_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "auth_user"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "userDetailInfo" ADD CONSTRAINT "userDetailInfo_user_id_auth_user_username_fk" FOREIGN KEY ("user_id") REFERENCES "auth_user"("username") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
